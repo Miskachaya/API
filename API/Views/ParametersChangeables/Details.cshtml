@@ -1,0 +1,60 @@
+﻿@model API.Models.ParametersChangeable
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>ParametersChangeable</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ActiveLoadPower)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ActiveLoadPower)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.InductiveLoadPower)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.InductiveLoadPower)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Inductance)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Inductance)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ActiveResistace)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ActiveResistace)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.MicrogridFrequency)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.MicrogridFrequency)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Time)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Time)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Block)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Block.BlockId)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

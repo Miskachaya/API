@@ -1,0 +1,90 @@
+﻿@model API.Models.ParametersMeasureChangeable
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>ParametersMeasureChangeable</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.BlockId)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.BlockId)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.VaoltageValue)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.VaoltageValue)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CurrentValue)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CurrentValue)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ActiveLoadPower)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ActiveLoadPower)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FullLoadPower)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FullLoadPower)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.LoadPowerFactor)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.LoadPowerFactor)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.MicrogridFrequency)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.MicrogridFrequency)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.LoadActivePower)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.LoadActivePower)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.MicrogridLoadPower)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.MicrogridLoadPower)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Inductance)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Inductance)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ActiveResistance)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ActiveResistance)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Time)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Time)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

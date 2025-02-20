@@ -1,0 +1,89 @@
+﻿@model API.Models.ParametersMeasureChangeable
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>ParametersMeasureChangeable</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="BlockId" class="control-label"></label>
+                <input asp-for="BlockId" class="form-control" />
+                <span asp-validation-for="BlockId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="VaoltageValue" class="control-label"></label>
+                <input asp-for="VaoltageValue" class="form-control" />
+                <span asp-validation-for="VaoltageValue" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CurrentValue" class="control-label"></label>
+                <input asp-for="CurrentValue" class="form-control" />
+                <span asp-validation-for="CurrentValue" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ActiveLoadPower" class="control-label"></label>
+                <input asp-for="ActiveLoadPower" class="form-control" />
+                <span asp-validation-for="ActiveLoadPower" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FullLoadPower" class="control-label"></label>
+                <input asp-for="FullLoadPower" class="form-control" />
+                <span asp-validation-for="FullLoadPower" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LoadPowerFactor" class="control-label"></label>
+                <input asp-for="LoadPowerFactor" class="form-control" />
+                <span asp-validation-for="LoadPowerFactor" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MicrogridFrequency" class="control-label"></label>
+                <input asp-for="MicrogridFrequency" class="form-control" />
+                <span asp-validation-for="MicrogridFrequency" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LoadActivePower" class="control-label"></label>
+                <input asp-for="LoadActivePower" class="form-control" />
+                <span asp-validation-for="LoadActivePower" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MicrogridLoadPower" class="control-label"></label>
+                <input asp-for="MicrogridLoadPower" class="form-control" />
+                <span asp-validation-for="MicrogridLoadPower" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Inductance" class="control-label"></label>
+                <input asp-for="Inductance" class="form-control" />
+                <span asp-validation-for="Inductance" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ActiveResistance" class="control-label"></label>
+                <input asp-for="ActiveResistance" class="form-control" />
+                <span asp-validation-for="ActiveResistance" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Time" class="control-label"></label>
+                <input asp-for="Time" class="form-control" />
+                <span asp-validation-for="Time" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

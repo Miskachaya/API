@@ -1,0 +1,101 @@
+﻿@model IEnumerable<API.Models.ParametersMeasureChangeable>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.BlockId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VaoltageValue)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CurrentValue)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ActiveLoadPower)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FullLoadPower)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LoadPowerFactor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MicrogridFrequency)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LoadActivePower)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MicrogridLoadPower)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Inductance)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ActiveResistance)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Time)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.BlockId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VaoltageValue)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CurrentValue)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ActiveLoadPower)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FullLoadPower)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LoadPowerFactor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MicrogridFrequency)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LoadActivePower)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MicrogridLoadPower)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Inductance)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ActiveResistance)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Time)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

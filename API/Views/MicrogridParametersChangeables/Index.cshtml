@@ -1,0 +1,41 @@
+﻿@model IEnumerable<API.Models.MicrogridParametersChangeable>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.BlockType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Stand)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.BlockType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Stand.StandId)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.BlockId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.BlockId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.BlockId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
