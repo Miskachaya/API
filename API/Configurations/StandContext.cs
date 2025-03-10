@@ -36,8 +36,10 @@ public partial class StandContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+
         modelBuilder.Entity<MicrogridParametersChangeable>(entity =>
         {
+            
             entity.HasKey(e => e.BlockId);
 
             entity.ToTable("MicrogridParametersChangeable");
@@ -85,7 +87,6 @@ public partial class StandContext : DbContext
         modelBuilder.Entity<ParametersMeasure>(entity =>
         {
             entity.ToTable("ParametersMeasure");
-
             entity.Property(e => e.Id).HasColumnName("ID");
             entity.Property(e => e.BlockId).HasColumnName("BlockID");
 

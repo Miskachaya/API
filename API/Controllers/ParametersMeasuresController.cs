@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
+﻿using API.Configurations;
+using API.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using API.Configurations;
-using API.Models;
 
 namespace API.Controllers
 {
@@ -46,7 +41,9 @@ namespace API.Controllers
         public async Task<ActionResult<List<ParametersMeasure>>> GetParametersMeasure()
         {
             List<ParametersMeasure> parametersMeasureList = new List<ParametersMeasure>();
-            var BlockId = _context.ParametersMeasures.AsNoTracking().GroupBy(x => x.BlockId);
+            var BlockId = _context.ParametersMeasures.
+                AsNoTracking().
+                GroupBy(x => x.BlockId);
             foreach (var block in BlockId)
             {
                 parametersMeasureList.Add(block.OrderBy(x => x.Id).Last());
@@ -57,6 +54,56 @@ namespace API.Controllers
             }
 
             return parametersMeasureList;
+        }
+        // GET: api/ParametersMeasures/lv
+        [HttpGet("l")]
+        public async Task<ActionResult<IEnumerable<ParametersMeasure>>> GetParametersMeajsure()
+        {
+            List<ParametersMeasure> parametersMeasureList = new List<ParametersMeasure>();
+            var BlockId = _context.ParametersMeasures.
+                AsNoTracking().
+                GroupBy(x => x.BlockId);
+            foreach (var block in BlockId)
+            {
+                parametersMeasureList.Add(block.OrderBy(x => x.Id).Last());
+            }
+            if (parametersMeasureList == null)
+            {
+                return NotFound();
+            }
+
+            return parametersMeasureList;
+        }
+        // GET: api/ParametersMeasures/{}
+        [HttpGet("{a}-{b}")]
+        public async Task<ActionResult<IEnumerable<ParametersMeasure>>> GetParametersMeasureDate(DateTime a, DateTime b)
+        {
+            //DateTime a = DateTime.Parse(a1);
+            //DateTime b = DateTime.Parse(b1);
+            //List<ParametersMeasure> parametersMeasureList = new List<ParametersMeasure>();
+            var BlockId = await _context.ParametersMeasures
+                .AsNoTracking()
+                .Where(x => x.Time.Value > a && x.Time.Value < b)
+                //.GroupBy(x => x)
+                .ToListAsync();
+
+            //foreach (var block in BlockId)
+            //{
+            //    if (block != null)
+            //    {
+            //        parametersMeasureList.Add(block);
+            //    }
+            //}
+            //if (parametersMeasureList == null)
+            //{
+            //    return NotFound();
+            //}
+            //if (BlockId == null)
+            //{
+            //    return NotFound();
+            //}
+
+            return BlockId;
         }
 
         // PUT: api/ParametersMeasures/5
