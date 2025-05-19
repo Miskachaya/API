@@ -75,7 +75,7 @@ namespace API.Controllers
             return parametersMeasureList;
         }
         // GET: api/ParametersMeasures/{}
-        [HttpGet("{a}-{b}")]
+        [HttpGet("{a}f{b}")]
         public async Task<ActionResult<IEnumerable<ParametersMeasure>>> GetParametersMeasureDate(DateTime a, DateTime b)
         {
             //DateTime a = DateTime.Parse(a1);
@@ -108,16 +108,17 @@ namespace API.Controllers
 
         // PUT: api/ParametersMeasures/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutParametersMeasure(int id, ParametersMeasure parametersMeasure)
+        [HttpPut("{id}h{cur_val}")]
+        public async Task<IActionResult> PutParametersMeasure(int id,double cur_val, ParametersMeasure parametersMeasure)
         {
             if (id != parametersMeasure.Id)
             {
                 return BadRequest();
             }
 
+            
             _context.Entry(parametersMeasure).State = EntityState.Modified;
-
+            parametersMeasure.CurrentValue = cur_val;
             try
             {
                 await _context.SaveChangesAsync();
