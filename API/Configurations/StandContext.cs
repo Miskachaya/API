@@ -24,7 +24,7 @@ public partial class StandContext : DbContext
 
     public virtual DbSet<ParametersChangeable> ParametersChangeables { get; set; }
 
-    public virtual DbSet<ParametersMeasure> ParametersMeasures { get; set; }
+    public virtual DbSet<ParametersMeasure> ParametersMeasure { get; set; }
 
     public virtual DbSet<ParametersMeasureChangeable> ParametersMeasureChangeables { get; set; }
 
