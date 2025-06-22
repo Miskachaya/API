@@ -36,7 +36,7 @@ namespace API.Controllers
 
             return parametersMeasure;
         }
-        // GET: api/ParametersMeasures/lv
+        // GET: api/ParametersMeasures/цфlv
         [HttpGet("lv")]
         public async Task<ActionResult<List<ParametersMeasure>>> GetParametersMeasure()
         {
@@ -53,7 +53,7 @@ namespace API.Controllers
                 return NotFound();
             }
 
-            return parametersMeasureList;
+             return parametersMeasureList;
         }
         // GET: api/ParametersMeasures/lv
         [HttpGet("l")]
