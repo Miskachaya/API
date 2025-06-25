@@ -76,22 +76,14 @@ namespace API.Controllers
             return parametersMeasureList;
         }
         // GET: api/ParametersMeasures/{}
-        [HttpGet("{a}d{b}p{par}")]
-        public async Task<ActionResult<IEnumerable<ParametersMeasure>>> GetParametersMeasureDate(DateTime a, DateTime b, string par)
+        [HttpGet("{a}d{b}")]
+        public async Task<ActionResult<IEnumerable<ParametersMeasure>>> GetParametersMeasureDate(DateTime a, DateTime b)
         {
-            switch (par)
-            {
-                case "Voltage":
-                    var BlockId = await _context.ParametersMeasure
+            var BlockId = await _context.ParametersMeasure
                 .AsNoTracking()
-                
                 .Where(x => x.Time.Value > a && x.Time.Value < b)
-                .SelectMany(x=>x.BlockId,)
                 .ToListAsync();
-                    return BlockId;
-
-            }
-            
+            return BlockId;
         }
 
         // PUT: api/ParametersMeasures/5
