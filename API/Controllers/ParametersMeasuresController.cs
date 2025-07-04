@@ -76,40 +76,56 @@ namespace API.Controllers
             return parametersMeasureList;
         }
         // GET: api/ParametersMeasures/{}
-        //[HttpGet("{a}d{b}p{par}")]
-        //public async Task<ActionResult<IEnumerable<ParametersMeasure>>> GetParametersMeasureDate(DateTime a, DateTime b, string par)
-        //{
-        //    switch (par)
-        //    {
-        //        case "Voltage":
-        //        var BlockId = await _context.ParametersMeasure
-        //        .AsNoTracking()
-        //        .Where(x => x.Time.Value > a && x.Time.Value < b)
-        //        .ToListAsync();
-        //        return BlockId;
-        //    }
-            
-        //}
-
-        // PUT: api/ParametersMeasures/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{time}h{cur_val}")]
-        public async Task<IActionResult> PutParametersMeasure(DateTime time,double cur_val)
+        [HttpGet("{a}-{b}")]
+        public async Task<ActionResult<IEnumerable<ParametersMeasure>>> GetParametersMeasureDate(DateTime a, DateTime b)
         {
-            ParametersMeasure obj = await _context.ParametersMeasure
+            //DateTime a = DateTime.Parse(a1);
+            //DateTime b = DateTime.Parse(b1);
+            //List<ParametersMeasure> parametersMeasureList = new List<ParametersMeasure>();
+            var BlockId = await _context.ParametersMeasures
                 .AsNoTracking()
-                .FirstOrDefaultAsync(x=> 
-                                      x.Time.Value.Hour ==  time.Hour
-                                      && x.Time.Value.Minute == time.Minute
-                                      && x.Time.Value.Second == time.Second);
-            //if (time != obj.Time)
+                .Where(x => x.Time.Value > a && x.Time.Value < b)
+                //.GroupBy(x => x)
+                .ToListAsync();
+
+            //foreach (var block in BlockId)
             //{
-            //    return BadRequest();
+            //    if (block != null)
+            //    {
+            //        parametersMeasureList.Add(block);
+            //    }
             //}
+            //if (parametersMeasureList == null)
+            //{
+            //    return NotFound();
+            //}
+            //if (BlockId == null)
+            //{
+            //    return NotFound();
+            //}
+
+            return BlockId;
+        }
 
             
             _context.Entry(obj).State = EntityState.Modified;
             obj.CurrentValue = cur_val;
+            await _context.SaveChangesAsync();
+            //try
+            //{
+            //    await _context.SaveChangesAsync();
+            //}
+            //catch ()
+            //{
+            //    //if (!ParametersMeasureExists(time))
+            //    //{
+            //    //    return NotFound();
+            //    //}
+            //    //else
+            //    //{
+            //    //    throw;
+            //    //}
+            //}
             await _context.SaveChangesAsync();
             //try
             //{
